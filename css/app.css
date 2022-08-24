@@ -1,0 +1,282 @@
+@charset "UTF-8";
+/* ⚙ Aqui definiremos las Custom Properties */
+:root {
+  --color-primario:#181818;
+  --color-secundario:#f0f0f0;
+  /* Tipografía */
+  --tipo-principal:"Lato", sans-serif;
+  --tipo-secundaria:Verdana;
+}
+
+/* ⚙ Las adaptamos al modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primario:#f0f0f0;
+    --color-secundario:#181818;
+  }
+}
+/* Opcional */
+/* ⚙ Configuramos si el usuario ha activado el modo alto contraste (WD) */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primario:black;
+    --color-secundario:white;
+  }
+}
+/* Opcional */
+/* ⚙ Desactivamos los animations en el caso de que el usuario haya configurado el modo si animations */
+@media (prefers-reduced-motion: reduce) {
+  /* Se aconseja colocar la etiqueta espeficifica, porque afecta al rendimeinto con "*" */
+  * {
+    -webkit-animation: none;
+            animation: none;
+    transition: none;
+  }
+}
+/* ⚙ Reseteamos los margin y paddings de todas las etiquetas */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box; /*Para solventar el modelo caja */
+  vertical-align: baseline; /*Para alinear texto e imagenes */
+}
+
+/* ⚙ Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* opcional */
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* opcional */
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+/* ⚙ Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+}
+
+/* ⚙ ...Excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* ⚙ Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* ⚙ Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ⚙ Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ⚙ Evitamos problemas con los pseudoelementos de quotes */
+blockquote::before, blockquote::after, q::before, q::after {
+  content: "";
+  content: none;
+}
+
+/* ⚙ Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--color-primario);
+  color: var(--color-secundario);
+}
+::selection {
+  background-color: var(--color-primario);
+  color: var(--color-secundario);
+}
+
+/* ⚙ Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto; /** Si el texto no cabe en el contenedor/linea, coloca un "-" en el corte de la palabra */
+  background-color: transparent;
+  display: block;
+  color: inherit;
+  /* opcional */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* ⚙ Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ⚙ Evitamos problemas con los svg */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* ⚙ Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  color: var(--color-primario);
+  background-color: var(--color-secundario);
+  /* opcional */
+  line-height: 1.4em; /* recomendacion de interlineado: entre 1.4em y 1.6em */
+  /* opcional */ /*hyphens: auto;*/
+  /* opcional */
+  font-smooth: always; /* para definir mas la letra */
+  /* opcional */
+  --webkit-font-smoothing: antialiased;
+  /* opcional */
+  --moz-osx-font-smoothing: grayscale;
+}
+
+.contenedor {
+  width: 90%;
+  max-width: 1000px;
+  padding: 2.5em 1.25em;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tarjeta {
+  width: 100%;
+  max-width: 35em;
+  position: relative;
+  color: #fff;
+  transition: 0.3s ease;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  cursor: pointer;
+  z-index: 2;
+}
+.tarjeta.active {
+  transform: rotateY(180deg);
+}
+.tarjeta__cara {
+  padding: 1.8em;
+  border-radius: 0.9em;
+  min-height: 19em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 10px 0 rgba(90, 116, 148, 0.3);
+}
+.tarjeta__frente {
+  width: 100%;
+  background: url(../img/bg-tarjeta/bg-tarjeta-03.jpg);
+  background-size: cover;
+}
+.tarjeta__frente .marca {
+  display: flex;
+  justify-content: end;
+  min-height: 3.125em;
+}
+.tarjeta__frente .marca__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 5em;
+}
+.tarjeta__frente .frente__chip {
+  width: 100%;
+  max-width: 3.125em;
+  margin-bottom: 1.25em;
+}
+.tarjeta__frente .dato__label {
+  font-size: 1em;
+  color: #7d8994;
+  margin-bottom: 0.3em;
+}
+.tarjeta__frente .dato__numero, .tarjeta__frente .dato__nombre, .tarjeta__frente .dato__expiracion {
+  color: #fff;
+  font-size: 1.3em;
+  text-transform: uppercase;
+}
+.tarjeta__frente .dato__flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5em;
+}
+.tarjeta__atras {
+  background: url(../img/bg-tarjeta/bg-tarjeta-03.jpg);
+  background-size: cover;
+  filter: hue-rotate(70deg);
+  background-position: bottom left;
+  transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+}
+.tarjeta__atras--barra {
+  height: 2.5em;
+  width: 100%;
+  background: #000;
+  position: absolute;
+  top: 2.5em;
+  left: 0;
+}
+.tarjeta__atras .dato {
+  margin-top: 3.5em;
+  display: flex;
+  justify-content: space-between;
+}
+.tarjeta__atras .dato__label {
+  margin-bottom: 0.3em;
+}
+.tarjeta__atras .dato__grupo--firma {
+  width: 70%;
+}
+.tarjeta__atras .dato__firma {
+  height: 2.5em;
+  background: repeating-linear-gradient(skyblue 0, skyblue 5px, orange 5px, orange 10px);
+}
+.tarjeta__atras .dato__firma--p {
+  line-height: 1.2em;
+  font-family: "Liu Jian Mao Cao", cursive;
+  color: #000;
+  font-size: 1.7em;
+  padding: 0 10px;
+  text-transform: capitalize;
+}
+.tarjeta__atras .dato__grupo--ccv {
+  width: 20%;
+}
+.tarjeta__atras .dato__ccv {
+  background: #fff;
+  height: 2.5em;
+  color: #000;
+  line-height: 1.5em;
+  padding: 8px;
+  text-align: center;
+}
+.tarjeta__atras--leyenda {
+  font-size: 0.8em;
+  line-height: 1.3em;
+}
+.tarjeta__atras--link {
+  font-size: 0.8em;
+  color: #fff;
+}/*# sourceMappingURL=app.css.map */

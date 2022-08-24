@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario dinámico de Tarjeta de crédito</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="contenedor">
+    <section class="tarjeta" id="tarjeta">
+      <div class="tarjeta__frente tarjeta__cara">
+        <div class="frente__marca marca">
+          <img src="img/logos/visa.png" class="marca__img" alt="visa">
+        </div>
+        <img src="img/chip-tarjeta.png" class="frente__chip" alt="chip">
+        <div class="tarjeta__frente--datos dato">
+          <div class="dato__grupo" id="numero">
+            <p class="dato__label">Número Tarjeta</p>
+            <p class="dato__numero">#### #### #### ####</p>
+          </div>
+          <div class="dato__flex">
+            <div class="dato__grupo" id="nombre">
+              <p class="dato__label">Nombre Tarjeta</p>
+              <p class="dato__nombre">Jhon Doe</p>
+            </div>
+            <div class="dato__grupo" id="expiracion">
+              <p class="dato__label">Expiración</p>
+              <p class="dato__expiracion"> <span class="dato__expiracion--mes">MM</span> / <span class="dato__expiracion--year">AA</span> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tarjeta__atras tarjeta__cara">
+        <div class="tarjeta__atras--barra"></div>
+        <div class="tarjeta__atras--datos dato">
+          <div class="dato__grupo dato__grupo--firma" id="firma">
+            <p class="dato__label">Firma</p>
+            <div class="dato__firma"><p class="dato__firma--p"><p class="dato__firma--p"></p></div>
+          </div>
+          <div class="dato__grupo dato__grupo--ccv" id="ccv">
+            <p class="dato__label">CCV</p>
+            <p class="dato__ccv">900</p>
+          </div>
+        </div>
+        <p class="tarjeta__atras--leyenda">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic tempora aliquam totam, molestiae sequi quasi.
+        </p>
+        <a href="#" class="tarjeta__atras--link">www.tubanco.com</a>
+      </div>
+    </section>
+  </div>
+  
+
+  <script src="https://kit.fontawesome.com/ddf6122192.js" crossorigin="anonymous"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

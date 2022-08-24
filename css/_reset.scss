@@ -1,0 +1,134 @@
+/* ⚙ Aqui definiremos las Custom Properties */
+:root{
+  --color-primario:#181818;
+  --color-secundario:#f0f0f0;
+
+  /* Tipografía */
+  --tipo-principal:'Lato', sans-serif;;
+  --tipo-secundaria:Verdana;
+}
+
+/* ⚙ Las adaptamos al modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root{
+    --color-primario:#f0f0f0;
+    --color-secundario:#181818;
+  }
+}
+
+/* Opcional */
+/* ⚙ Configuramos si el usuario ha activado el modo alto contraste (WD) */
+@media (prefers-contrast: high){
+  :root{
+    --color-primario:black;
+    --color-secundario:white;
+  }
+}
+
+/* Opcional */
+/* ⚙ Desactivamos los animations en el caso de que el usuario haya configurado el modo si animations */
+@media(prefers-reduced-motion: reduce){
+  /* Se aconseja colocar la etiqueta espeficifica, porque afecta al rendimeinto con "*" */
+  *{
+    animation: none;
+    transition: none;
+  }
+}
+
+
+/* ⚙ Reseteamos los margin y paddings de todas las etiquetas */
+*{
+  margin: 0;
+  padding: 0;
+  border:0;
+  box-sizing: border-box; /*Para solventar el modelo caja */
+  vertical-align: baseline; /*Para alinear texto e imagenes */
+}
+
+/* ⚙ Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure{
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* opcional */ object-fit: cover;
+  /* opcional */ object-position: center center;
+}
+
+/* ⚙ Reseteamos los enlaces para funcionar como cajas... */
+a{
+  display: block;
+}
+
+/* ⚙ ...Excepto los que se encuentran en párrafos */
+p a{
+  display: inline;
+}
+
+/* ⚙ Quitamos los puntos de los <li> */
+li{
+  list-style-type: none;
+}
+
+/* ⚙ Configuramos anclas suaves */
+html{
+  scroll-behavior: smooth;
+}
+
+/* ⚙ Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1,h2,h3,h4,h5,h6,p,span,a,strong,blockquote,i,b,u,em{
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ⚙ Evitamos problemas con los pseudoelementos de quotes */
+blockquote::before,blockquote::after,q::before,q::after{
+  content: '';
+  content: none;
+}
+
+/* ⚙ Configuramos el texto que seleccionamos */
+::selection{
+  background-color: var(--color-primario);
+  color: var(--color-secundario);
+}
+
+/* ⚙ Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label{
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto; /** Si el texto no cabe en el contenedor/linea, coloca un "-" en el corte de la palabra */
+  background-color: transparent;
+  display: block;
+  color: inherit;
+  /* opcional */ appearance: none;
+}
+
+/* ⚙ Reseteamos las tablas */
+table,tr,td{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ⚙ Evitamos problemas con los svg */
+svg{
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* ⚙ Configuramos la tipografía para toda la web */
+body{
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  color: var(--color-primario);
+  background-color: var(--color-secundario);
+  /* opcional */ line-height: 1.4em; /* recomendacion de interlineado: entre 1.4em y 1.6em */
+  /* opcional */ /*hyphens: auto;*/
+  /* opcional */ font-smooth: always; /* para definir mas la letra */
+  /* opcional */ --webkit-font-smoothing: antialiased;
+  /* opcional */ --moz-osx-font-smoothing: grayscale;
+}

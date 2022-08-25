@@ -92,12 +92,12 @@ blockquote::before, blockquote::after, q::before, q::after {
 
 /* ⚙ Configuramos el texto que seleccionamos */
 ::-moz-selection {
-  background-color: var(--color-primario);
-  color: var(--color-secundario);
+  background-color: --color-primario;
+  color: --color-secundario;
 }
 ::selection {
-  background-color: var(--color-primario);
-  color: var(--color-secundario);
+  background-color: --color-primario;
+  color: --color-secundario;
 }
 
 /* ⚙ Nivelamos problemas de tipografías y colocación de formularios */
@@ -155,6 +155,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .tarjeta {
@@ -162,11 +163,9 @@ body {
   max-width: 35em;
   position: relative;
   color: #fff;
-  transition: 0.3s ease;
+  transition: 0.3s ease all;
   transform: rotateY(0deg);
   transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
   cursor: pointer;
   z-index: 2;
 }
@@ -180,7 +179,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 10px 10px 0 rgba(90, 116, 148, 0.3);
+  box-shadow: 0 10px 10px 0 rgba(90, 116, 148, 0.4);
 }
 .tarjeta__frente {
   width: 100%;
@@ -222,13 +221,13 @@ body {
 .tarjeta__atras {
   background: url(../img/bg-tarjeta/bg-tarjeta-03.jpg);
   background-size: cover;
-  filter: hue-rotate(70deg);
   background-position: bottom left;
+  filter: hue-rotate(70deg);
+  position: absolute;
+  top: 0;
   transform: rotateY(180deg);
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  position: absolute;
-  top: 0;
 }
 .tarjeta__atras--barra {
   height: 2.5em;
@@ -279,4 +278,116 @@ body {
 .tarjeta__atras--link {
   font-size: 0.8em;
   color: #fff;
+}
+
+.btn__openform {
+  width: 3em;
+  height: 3em;
+  background: #2364b2;
+  line-height: 0.5em;
+  color: #fff;
+  position: relative;
+  top: -1.5em;
+  z-index: 3;
+  border-radius: 100%;
+  box-shadow: 4px 4px 8px rgba(24, 56, 182, 0.4);
+  transition: 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+.btn__openform .icon {
+  font-size: 2em;
+}
+.btn__openform:hover {
+  background-color: #142e96;
+}
+.btn__openform.active {
+  transform: rotate(45deg);
+}
+
+.cardform {
+  background: #fff;
+  width: 100%;
+  max-width: 43em;
+  padding: 9.4em 1.9em 1.9em 1.9em;
+  border-radius: 0.6em;
+  position: absolute;
+  top: 13.5em;
+  transition: 0.3s ease;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 0%, 0% 0%);
+          clip-path: polygon(0 0, 100% 0, 100% 0%, 0% 0%);
+}
+.cardform.active {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.cardform__label {
+  margin-bottom: 0.5em;
+  font-size: 1em;
+  color: #7d8994;
+}
+.cardform__input, .cardform__select, .cardform__submit {
+  border: 0.125em solid #ced6e0;
+  font-size: 1.1em;
+  height: 3.1em;
+  width: 100%;
+  padding: 0.3em 0.8em;
+  transition: 0.3s ease;
+  border-radius: 0.3em;
+  color: #000;
+}
+.cardform__input:hover, .cardform__select:hover {
+  border: 0.1em solid #93bded;
+}
+.cardform__input:focus, .cardform__select:focus {
+  outline: rgb(4, 4, 4);
+  box-shadow: 1px 7px 10px -5px rgba(90, 116, 148, 0.4);
+}
+.cardform__input {
+  margin-bottom: 1.25em;
+  text-transform: uppercase;
+}
+.cardform__flex,
+.cardform .expira__flex {
+  display: flex;
+  justify-content: space-between;
+}
+.cardform__submit {
+  border: none;
+  padding: 0.6em;
+  font-size: 1.3em;
+  color: #fff;
+  background: #2364b2;
+  box-shadow: 2px 2px 10px 0px rgba(0, 85, 212, 0.4);
+  cursor: pointer;
+}
+.cardform__submit:hover {
+  background: #142e96;
+}
+
+.expira {
+  width: 100%;
+}
+.expira .select__grupo {
+  width: 100%;
+  margin-right: 0.9em;
+  position: relative;
+}
+.expira .select__grupo:hover .icon__down {
+  color: #93bded;
+}
+.expira__select {
+  display: flex;
+  justify-content: space-between;
+}
+.expira .icon__down {
+  position: absolute;
+  color: #ced6e0;
+  top: 0.8em;
+  right: 0.5em;
+  transition: 0.3s ease;
+}
+
+.ccv {
+  min-width: 6.25em;
 }/*# sourceMappingURL=app.css.map */

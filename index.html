@@ -6,14 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario dinámico de Tarjeta de crédito</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
   <div class="contenedor">
+    <!--Tarjeta-->
     <section class="tarjeta" id="tarjeta">
       <div class="tarjeta__frente tarjeta__cara">
-        <div class="frente__marca marca">
-          <img src="img/logos/visa.png" class="marca__img" alt="visa">
+        <div class="frente__marca marca" id="marca">
+          <!-- <img src="img/logos/visa.png" class="marca__img" alt="visa"> -->
         </div>
         <img src="img/chip-tarjeta.png" class="frente__chip" alt="chip">
         <div class="tarjeta__frente--datos dato">
@@ -24,7 +26,7 @@
           <div class="dato__flex">
             <div class="dato__grupo" id="nombre">
               <p class="dato__label">Nombre Tarjeta</p>
-              <p class="dato__nombre">Jhon Doe</p>
+              <p class="dato__nombre">Sara Potter</p>
             </div>
             <div class="dato__grupo" id="expiracion">
               <p class="dato__label">Expiración</p>
@@ -43,7 +45,7 @@
           </div>
           <div class="dato__grupo dato__grupo--ccv" id="ccv">
             <p class="dato__label">CCV</p>
-            <p class="dato__ccv">900</p>
+            <p class="dato__ccv"></p>
           </div>
         </div>
         <p class="tarjeta__atras--leyenda">
@@ -52,10 +54,53 @@
         <a href="#" class="tarjeta__atras--link">www.tubanco.com</a>
       </div>
     </section>
+    
+    <!--Boton-->
+    <div class="contenedor__btn btn">
+      <button class="btn__openform" id="btn__openform">
+        <span class="material-symbols-outlined icon">add</span>
+      </button>
+    </div>
+
+    <!--Formulario-->
+    <form action="" id="cardform" class="cardform">
+      <div class="cardform__grupo">
+        <label for="inputNumero" class="cardform__label">Número Tarjeta</label>
+        <input type="text" class="input__text cardform__input" id="inputNumero" maxlength="19" autocomplete="off">
+      </div>
+      <div class="cardform__grupo">
+        <label for="inputNombre" class="cardform__label">Nombre</label>
+        <input type="text" class="input__text cardform__input" id="inputNombre" maxlength="19" autocomplete="off">
+      </div>
+      <div class="cardform__flex">
+        <div class="cardform__grupo expira">
+          <label for="selectMes" class="expira__label cardform__label">Expiración</label>
+          <div class="expira__flex">
+            <div class="select__grupo">
+              <select name="mes" id="selectMes" class="espira__select cardform__select">
+                <option disabled selected>Mes</option>
+              </select>
+              <span class="material-symbols-outlined icon__down">expand_more</span>
+            </div>
+            <div class="select__grupo">
+              <select name="year" id="selectYear" class="expira__select cardform__select">
+                <option disabled selected>Año</option>
+              </select>
+              <span class="material-symbols-outlined icon__down">expand_more</span>
+            </div>
+          </div>
+          
+        </div>
+        <div class="cardform__grupo ccv">
+          <label for="inputCCV" class="ccv__label cardform__label">CCV</label>
+          <input type="text" class="ccv__input cardform__input" id="inputCCV" maxlength="3">
+        </div>
+      </div>
+      <button class="cardform__submit" type="submit">Enviar</button>
+    </form>
   </div>
   
 
-  <script src="https://kit.fontawesome.com/ddf6122192.js" crossorigin="anonymous"></script>
-  <script src="./js/main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>

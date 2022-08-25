@@ -1,4 +1,4 @@
-@import '_reset.scss';
+@import 'reset.scss';
 
 .contenedor{
   width: 90%;
@@ -6,23 +6,20 @@
   padding: 2.5em 1.25em;
   margin: auto;
   display: flex;
-  // background: #333;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
-
 .tarjeta{
   width: 100%;
   max-width: 35em;
   position: relative;
   color: #fff;
-  transition: .3s ease;
+  transition: .3s ease all;
   transform: rotateY(0deg);
   transform-style: preserve-3d;
-  backface-visibility: hidden;
   cursor: pointer;
   z-index: 2;
-  // background: #000;
 
   &.active{
     transform: rotateY(180deg);
@@ -35,7 +32,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0 10px 10px 0 rgba(90, 116, 148,0.3);
+    box-shadow: 0 10px 10px 0 rgba(90, 116, 148,0.4);
   }
 
   &__frente{
@@ -88,12 +85,12 @@
   &__atras{
     background: url(../img/bg-tarjeta/bg-tarjeta-03.jpg), ;
     background-size: cover;
-    filter: hue-rotate(70deg);
     background-position: bottom left;
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
+    filter: hue-rotate(70deg);
     position: absolute;
     top: 0;
+    transform: rotateY(180deg);
+    backface-visibility:hidden;
 
     &--barra{
       height: 2.5em;
@@ -154,3 +151,125 @@
     }
   }
 }
+.btn{
+
+  &__openform{
+    width: 3em;
+    height: 3em;
+    background: #2364b2;
+    line-height: .5em;
+    color: #fff;
+    position: relative;
+    top: -1.5em;
+    z-index: 3;
+    border-radius: 100%;
+    box-shadow: 4px 4px 8px rgba(24, 56, 182, 0.4);
+    transition: .3s ease;
+    border: none;
+    cursor: pointer;
+
+    .icon{
+      font-size:2em;
+    }
+
+    &:hover{
+      background-color: #142e96;
+    }
+
+    &.active{
+      transform: rotate(45deg);
+    }
+  }
+}
+.cardform{
+  background: #fff;
+  width: 100%;
+  max-width: 43em;
+  padding:9.4em 1.9em 1.9em 1.9em ;
+  border-radius: .6em;
+  position: absolute;
+  top: 13.5em;
+  transition: .3s ease;
+  clip-path: polygon(0 0, 100% 0, 100% 0%, 0% 0%);
+  
+  &.active{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  &__label{
+    margin-bottom: .5em;
+    font-size: 1em;
+    color: #7d8994;
+  }
+  &__input,
+  &__select,
+  &__submit{
+    border: 0.125em solid #ced6e0;
+    font-size: 1.1em;
+    height: 3.1em;
+    width: 100%;
+    padding: .3em .8em;
+    transition: .3s ease;
+    border-radius: .3em;
+    color: #000;
+  }
+
+  &__input:hover,
+  &__select:hover{
+    border: .1em solid #93bded;
+  }
+  &__input:focus,
+  &__select:focus{
+    outline: rgb(4, 4, 4);
+    box-shadow: 1px 7px 10px -5px rgba(90, 116, 148, 0.4);
+  }
+  &__input{
+    margin-bottom: 1.25em;
+    text-transform: uppercase;
+  }
+  &__flex,
+  .expira__flex{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__submit{
+    border: none;
+    padding: .6em;
+    font-size: 1.3em;
+    color: #fff;
+    background: #2364b2;
+    box-shadow: 2px 2px 10px 0px rgba(0, 85, 212, 0.4);
+    cursor: pointer;
+  }
+  &__submit:hover{
+    background: #142e96;
+  }
+}
+.expira{
+  width: 100%;
+  .select__grupo{
+    width: 100%;
+    margin-right: .9em;
+    position: relative;
+
+    &:hover .icon__down{
+      color: #93bded;
+    }
+  }
+  &__select{
+    display: flex;
+    justify-content: space-between;
+  }
+  .icon__down{
+    position: absolute;
+    color: #ced6e0;
+    top: .8em;
+    right: .5em;
+    transition: .3s ease;
+  }
+}
+.ccv{
+  min-width: 6.25em;
+}
+
+

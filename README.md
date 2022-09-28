@@ -1,6 +1,6 @@
 # Credit-card-form
 Dynamic form with credict card
-[Look at the page](https://dianavcruz.github.io/Credit-card-form/)
+[Look at the page](https://credit-card-page.netlify.app)
 
 ![image](https://user-images.githubusercontent.com/98240550/186558146-0043c68a-2ba8-4016-a144-75033dfe2d02.png)
 ![image](https://user-images.githubusercontent.com/98240550/186558314-dc3b5ff2-185a-4649-a100-c9d6d2f9829c.png)
